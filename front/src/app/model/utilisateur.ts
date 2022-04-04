@@ -5,4 +5,5 @@ export class utilisateur {
 	"nom_profile": string;
 	"etat": string;
     "nom_restauraunt":string;
+	"mdp":string;
 }

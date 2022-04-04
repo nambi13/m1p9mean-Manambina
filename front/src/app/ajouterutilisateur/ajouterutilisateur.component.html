@@ -1,0 +1,40 @@
+<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+
+    <div>
+      <label for="nom">
+        nom
+      </label>
+      <input id="nom" type="text" formControlName="nom">
+    </div>
+  
+    <div>
+      <label for="prenom">
+        prenom
+      </label>
+      <input id="prenom" type="text" formControlName="prenom">
+    </div>
+
+    <div>
+        <label for="email">
+          email
+        </label>
+        <input id="email" formControlName="email" type="text" formControlName="email">
+      </div>
+    
+
+    <div>
+        <label for="mdp1">
+          mdp1
+        </label>
+        <input id="mdp1" type="text" formControlName="mdp1">
+      </div>
+    <div>
+        <label for="mdp2">
+          mdp2
+        </label>
+        <input id="mdp2" type="text" formControlName="mdp2">
+      </div>
+  
+    <button class="button" type="submit">Purchase</button>
+  
+  </form>
