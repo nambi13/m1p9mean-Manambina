@@ -5,7 +5,8 @@ var app = express();
 const mongoose = require('mongoose');
 //const mongoose = require("mongoose");
 //var connection=require("./db.js");
-var metierutilisateur=require("./metierUtilisateur.js");
+var metierutilisateur=require("./Metierutilisateur.js");
+var metierplat=require("./Metierplat.js");
 var connection=require("./connect.js");
 var MongoClient = require('mongodb').MongoClient;
 app.use(cors());
@@ -37,10 +38,60 @@ app.get('/listeclients', (req, res) => {
   db.collection("utilisateur").find(query).toArray(function(err, result) {
     if (err) throw err;
     console.log(result);
+    client.close();
     res.send(result);
   //  client.close();
   });
 });
+
+
+
+app.get('/listeplat', (req, res) => {
+  var query = { etat_plat: 1 };
+  db.collection("plat").find(query).toArray(function(err, result) {
+    if (err) throw err;
+    console.log(result);
+    res.send(result);
+   //return  res.status(200).send("OK");
+   
+  
+   
+  //  client.close();
+  });
+});
+
+app.post('/ajouterplat', (req, res) => {
+ //  {nom_plat: 'wqewq`', prix: 'qweqw', quantite: '123'}
+    //console.log(req.body);
+    var name = req.body; 
+    //console.log(name);
+    try{
+        metierplat.ajoutplat(name,db);
+       //S res.statusCode = 200;
+       //S res.setHeader('Content-Type', 'application/json');
+      // res.send({ title: 'GeeksforGeeks' });
+    //  client.close();
+      res.status(200).send("OK");
+    }catch(error){
+  
+     // res.statusCode = 404;
+     //S res.send(error);
+    // console.log(error.message);
+   // res.send({ title: error.message });
+     res.status(404).send(error.message);
+     
+      
+   // client.close();
+   
+      //res.end();
+  
+  
+    }
+
+
+});
+
+
 
 app.post('/create', (req, res) => {
   var name = req.body; 
@@ -50,14 +101,20 @@ app.post('/create', (req, res) => {
      //S res.statusCode = 200;
      //S res.setHeader('Content-Type', 'application/json');
     // res.send({ title: 'GeeksforGeeks' });
+  
     res.status(200).send("OK");
+  //  client.close();
   }catch(error){
 
    // res.statusCode = 404;
    //S res.send(error);
    //console.log(error.message);
-  //  res.send({ title: error.message });
+   
+ 
+  res.send({ title: error.message });
   res.status(404).send(error.message);
+ // client.close();
+ 
     //res.end();
 
 

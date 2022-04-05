@@ -6,12 +6,18 @@ import { AppComponent } from './app.component';
 import { ListusersComponent } from './listusers/listusers.component';
 import { AjouterutilisateurComponent } from './ajouterutilisateur/ajouterutilisateur.component';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { ListeplatComponent } from './listeplat/listeplat.component';
+import { AjouterplatComponent } from './ajouterplat/ajouterplat.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     ListusersComponent,
-    AjouterutilisateurComponent
+    AjouterutilisateurComponent,
+    ListeplatComponent,
+    AjouterplatComponent,
+  
   ],
   imports: [
     BrowserModule,

@@ -38,8 +38,16 @@
             throw new Error('Email existant');
           }
           else{
+            var data2 = {
+                nom: formulaire.nom,
+                prenom: formulaire.prenom,
+                email:formulaire.email,
+                mdp:formulaire.mdp1,
+                etat:'1',
+                nom_profile:'client'
+            };
 
-            db.collection("utilisateur").insertOne(formulaire, function(err, res) {
+            db.collection("utilisateur").insertOne(data2, function(err, res) {
                 if (err) throw err;
               
               });

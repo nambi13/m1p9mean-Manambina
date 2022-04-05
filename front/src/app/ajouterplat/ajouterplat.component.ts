@@ -1,25 +1,25 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
-import { UtilisateurService } from '../utilisateur.service';    
+import { PlatService } from '../services/plat.service';  
 import { FormsModule, ReactiveFormsModule,FormBuilder } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
-  selector: 'app-ajouterutilisateur',
-  templateUrl: './ajouterutilisateur.component.html',
-  styleUrls: ['./ajouterutilisateur.component.css']
+  selector: 'app-ajouterplat',
+  templateUrl: './ajouterplat.component.html',
+  styleUrls: ['./ajouterplat.component.css']
 })
-export class AjouterutilisateurComponent implements OnInit {
+export class AjouterplatComponent implements OnInit {
   error: string= ''
-  
+
   checkoutForm = this.formBuilder.group({
-    nom: [''],
-    prenom: [''],
-    email:[''],
-    mdp1:[''],
-    mdp2:[''],
+    nom_plat: [''],
+    prix: [''],
+    quantite:[''],
   });
 
-  constructor(private UtilisateurService: UtilisateurService, private location: Location,
+  constructor(private PlatService: PlatService, private location: Location,
     private formBuilder: FormBuilder) { }
 	
 
@@ -31,7 +31,7 @@ export class AjouterutilisateurComponent implements OnInit {
    // console.warn('Your order has been submitted', this.checkoutForm.value);
  //   console.log(this.checkoutForm.value.name);
    // this.checkoutForm.reset();
-   this.UtilisateurService.ajouterclient(this.checkoutForm.value).subscribe(data =>{ 
+   this.PlatService.ajouterplat(this.checkoutForm.value).subscribe(data =>{ 
     console.log(data);
      // console.log(jsend);
     }, error=>{

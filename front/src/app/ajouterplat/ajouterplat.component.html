@@ -1,0 +1,28 @@
+<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+    <div *ngIf="error">{{error}}</div>
+    <div>
+      <label for="nom">
+        nom
+      </label>
+      <input id="nom" type="text" formControlName="nom_plat">
+    </div>
+  
+    <div>
+      <label for="prenom">
+        prix
+      </label>
+      <input id="prenom" type="text" formControlName="prix">
+    </div>
+
+    <div>
+        <label for="email">
+          quantite
+        </label>
+        <input id="email" formControlName="email" type="text" formControlName="quantite">
+      </div>
+    
+
+  
+    <button class="button" type="submit">Purchase</button>
+  
+  </form>
