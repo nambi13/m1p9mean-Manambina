@@ -26,11 +26,6 @@ export class AjouterplatComponent implements OnInit {
   ngOnInit(): void {
   }
   onSubmit(): void {
-    // Process checkout data here
-   // this.items = this.cartService.clearCart();
-   // console.warn('Your order has been submitted', this.checkoutForm.value);
- //   console.log(this.checkoutForm.value.name);
-   // this.checkoutForm.reset();
    this.PlatService.ajouterplat(this.checkoutForm.value).subscribe(data =>{ 
     console.log(data);
      // console.log(jsend);

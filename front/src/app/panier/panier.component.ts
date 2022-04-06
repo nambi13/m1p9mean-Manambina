@@ -10,7 +10,7 @@ import { PanierService } from '../services/panier.service';
   styleUrls: ['./panier.component.css']
 })
 export class PanierComponent implements OnInit {
-
+  error="";
   panierL:plat[]=[];
 	constructor(private route: ActivatedRoute, private PlatService: PlatService,private PanierService:PanierService) { }
   ngOnInit(): void {
@@ -34,7 +34,7 @@ export class PanierComponent implements OnInit {
          // console.log(jsend);
         }, error=>{
          // console.log(error.error);
-          //this.error=error.error;
+          this.error=error.error;
     
     
         }

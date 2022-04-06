@@ -66,8 +66,84 @@ function ajoutplat(formulaire,db){
     
 
         return 1;
+    }
+    function commande(formulaire,db){
+
+        
+
+        if(formulaire.plat.length==0){
+                throw new Error("Panier vide");
+        }
+        const crypto = require("crypto");
+        const id = crypto.randomBytes(16).toString("hex");
+        var idcommande=id;
+        let ts = Date.now();
+        let date_ob = new Date(ts);
+        let date = date_ob.getDate();
+        let month = date_ob.getMonth() + 1;
+        let year = date_ob.getFullYear();
+         var data2 = {
+           numerocommande: idcommande,
+           email_utilisateur_livreur:'',
+           email_utilisateur_recepteur:formulaire.email,
+           nom_restaurant:formulaire.restaurant,
+         //  date: ISODATE(`${year}-${month}-${date}`),
+         date:new Date(Date.now()).toISOString(),  
+         etat_livraison:1
+        };
+        db.collection("commande").insertOne(data2, function(err, res) {
+            if (err) throw err;
+        });
+        for(let i=0;i<formulaire.plat.length;i++){
+
+            var plat = {
+                numerocommande: idcommande,
+               nom_plat:formulaire.plat[i].nom_plat,
+               quantite:formulaire.plat[i].quantite,
+               prix:formulaire.plat[i].prix,
+             };
+
+           
+
+             db.collection("platcommande").insertOne(plat, function(err, res) {
+                if (err) throw err;
+            });
+
+        
+
+        }
+
+        for(let i=0;i<formulaire.plat.length;i++){
+
+           
+
+             var benefice = {
+                nom_restaurant:formulaire.restaurant,
+               nom_plat:formulaire.plat[i].nom_plat,
+               quantite:formulaire.plat[i].quantite,
+               prix:formulaire.plat[i].prix,
+               date:new Date(Date.now()).toISOString(),  
+             };
+
+           
+
+            db.collection("benefice").insertOne(benefice, function(err, res) {
+                if (err) throw err;
+            });
+
+        }
 
 
 
-}
-module.exports = {ajoutplat:ajoutplat};
+
+
+
+
+
+
+
+
+
+
+    }
+module.exports = {ajoutplat:ajoutplat,commande:commande};

@@ -8,6 +8,7 @@ const mongoose = require('mongoose');
 var metierutilisateur=require("./Metierutilisateur.js");
 var metierplat=require("./Metierplat.js");
 var connection=require("./connect.js");
+const Metierplat = require('./Metierplat.js');
 var MongoClient = require('mongodb').MongoClient;
 app.use(cors());
 app.options('*', cors());
@@ -97,9 +98,20 @@ app.post('/ajouterplat', (req, res) => {
 app.post('/commande', (req, res) => {
   var name = req.body; 
   console.log(name);
+  try{
+    Metierplat.commande(name,db)
+
+    return res.status(200).json("ok");
+  }catch(error){
+  
+
+    return res.status(400).json(error.message);
+  }
+
+
+  });
  // res.send(req.body);
  
-});
 
 
 

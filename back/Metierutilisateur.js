@@ -39,7 +39,7 @@
           }
           else{
             var data2 = {
-                nom: formulaire.nom,
+                nom_utilisateur: formulaire.nom,
                 prenom: formulaire.prenom,
                 email:formulaire.email,
                 mdp:formulaire.mdp1,

@@ -4,6 +4,8 @@
 <div>
 	<a routerLink="/listeplat">Go back</a>&nbsp;
 </div>
+<div *ngIf="error">{{error}}</div>
+
 <div *ngIf="panierL">
 <table>
       <tr>
