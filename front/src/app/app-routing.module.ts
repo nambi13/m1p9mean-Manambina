@@ -4,6 +4,7 @@ import { ListusersComponent } from './listusers/listusers.component';
 import { AjouterutilisateurComponent } from './ajouterutilisateur/ajouterutilisateur.component';
 import { ListeplatComponent } from './listeplat/listeplat.component';
 import { AjouterplatComponent } from './ajouterplat/ajouterplat.component';
+import { PanierComponent } from './panier/panier.component';
 
 const routes: Routes = [
 
@@ -12,6 +13,8 @@ const routes: Routes = [
   { path: 'ajouterclient', component: AjouterutilisateurComponent },
   { path: 'listeplat', component: ListeplatComponent },
   { path: 'ajouterplat', component: AjouterplatComponent },
+  { path: 'panier', component: PanierComponent },
+  
 
 ]
 

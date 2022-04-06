@@ -2,8 +2,9 @@
 
 <h3>List of Products</h3>
 <div>
-	<a routerLink="/panier">Detail</a>&nbsp;
+	<a routerLink="/listeplat">Go back</a>&nbsp;
 </div>
+<div *ngIf="panierL">
 <table>
       <tr>
     <th>Name</th>
@@ -11,15 +12,18 @@
 	<th>Quani</th>
 	<th>Actions</th>
   </tr>
-  <tr *ngFor="let product of plat">
+  <tr *ngFor="let product of panierL">
 	<td>{{product.nom_plat}}</td>
     <td>{{product.prix}}</td>
 	<td>{{product.quantite}}</td>
 
 	<td>
-		<button (click)="ajoutpanier(product)">Go Back</button>
+        <button class="btn btn-secondary" (click)="removeFromCart(product)"> x</button>
 	</td>
   </tr>
 </table>
+
+<button class="btn btn-secondary" (click)="acheter()">Acheter</button>
+</div>
 
 

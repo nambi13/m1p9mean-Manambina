@@ -93,6 +93,16 @@ app.post('/ajouterplat', (req, res) => {
 
 
 
+
+app.post('/commande', (req, res) => {
+  var name = req.body; 
+  console.log(name);
+ // res.send(req.body);
+ 
+});
+
+
+
 app.post('/create', (req, res) => {
   var name = req.body; 
   //console.log(name);

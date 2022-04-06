@@ -48,10 +48,10 @@ function ajoutplat(formulaire,db){
           }
           else{
             var data2 = {
-                nom: formulaire.nom_plat,
+                nom_plat: formulaire.nom_plat,
                 prix: formulaire.prix,
                 quantite:formulaire.quantite,
-                etat_plat:'1',
+                etat_plat:1,
             };
 
             db.collection("plat").insertOne(data2, function(err, res) {

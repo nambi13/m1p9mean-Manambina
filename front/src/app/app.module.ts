@@ -8,6 +8,7 @@ import { AjouterutilisateurComponent } from './ajouterutilisateur/ajouterutilisa
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { ListeplatComponent } from './listeplat/listeplat.component';
 import { AjouterplatComponent } from './ajouterplat/ajouterplat.component';
+import { PanierComponent } from './panier/panier.component';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { AjouterplatComponent } from './ajouterplat/ajouterplat.component';
     AjouterutilisateurComponent,
     ListeplatComponent,
     AjouterplatComponent,
+    PanierComponent,
   
   ],
   imports: [
