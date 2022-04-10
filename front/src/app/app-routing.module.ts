@@ -17,10 +17,18 @@ import { ModifrestorateurComponent } from './modifrestorateur/modifrestorateur.c
 import { ModifrestoComponent } from './modifresto/modifresto.component';
 import { ModifplatComponent } from './modifplat/modifplat.component';
 import { ListeplatadminComponent } from './listeplatadmin/listeplatadmin.component';
+import { LoginComponent } from './login/login.component';
+import { ListecommanderestorateurComponent } from './listecommanderestorateur/listecommanderestorateur.component';
+import { DetailplatcommanderComponent } from './detailplatcommander/detailplatcommander.component';
+import { BeneficesrestorateurComponent } from './beneficesrestorateur/beneficesrestorateur.component';
+import { ListeplatcommandeglobaleComponent } from './listeplatcommandeglobale/listeplatcommandeglobale.component';
+import { BeneficesfullComponent } from './beneficesfull/beneficesfull.component';
+import { ListeplatalivrerComponent } from './listeplatalivrer/listeplatalivrer.component';
 
 const routes: Routes = [
 
-
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
 	{ path: 'client', component: ListusersComponent },
   { path: 'ajouterclient', component: AjouterutilisateurComponent },
   { path: 'listeplat', component: ListeplatComponent },
@@ -38,7 +46,12 @@ const routes: Routes = [
   { path: 'resto/:id', component: ModifrestoComponent },
   { path: 'plat/:id', component: ModifplatComponent },
   { path: 'listeplatadmin', component: ListeplatadminComponent },
-
+  { path: 'listecommanderestorateur', component: ListecommanderestorateurComponent },
+  { path: 'detailcommandeplat/:id', component: DetailplatcommanderComponent },
+  { path: 'beneficerestorateur', component: BeneficesrestorateurComponent },
+  { path: 'listeplatcommande', component: ListeplatcommandeglobaleComponent },
+  { path: 'beneficefull', component: BeneficesfullComponent },
+  { path: 'platlivrer', component: ListeplatalivrerComponent },
   
 
 ]

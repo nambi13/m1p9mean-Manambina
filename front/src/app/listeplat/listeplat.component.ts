@@ -3,6 +3,8 @@ import { PlatService } from '../services/plat.service';
 import { ActivatedRoute } from '@angular/router';
 import { plat } from '../model/plat';
 import { PanierService } from '../services/panier.service';
+import { UtilisateurService } from '../utilisateur.service';
+import { empty } from 'rxjs';
 @Component({
   selector: 'app-listeplat',
   templateUrl: './listeplat.component.html',
@@ -10,12 +12,11 @@ import { PanierService } from '../services/panier.service';
 })
 export class ListeplatComponent implements OnInit {
   plat:plat[]=[];
-	constructor(private route: ActivatedRoute, private PlatService: PlatService,private PanierService:PanierService) { }
+	constructor(private route: ActivatedRoute, private PlatService: PlatService,private PanierService:PanierService,private UtilisateurService:UtilisateurService) { }
   ngOnInit(): void {
+    this.getsession();
     this.getProducts();
     //this.getpanier();
-  
-  
   }
 
   getProducts(): void {
@@ -30,6 +31,19 @@ export class ListeplatComponent implements OnInit {
 
       this.PanierService.addToCart(plat);
       this.getProducts();
+    }
+
+    getsession():void{
+        var test=this.UtilisateurService.getWithExpiry();
+        if (localStorage.getItem("information") === null) {
+            //redirect
+        }else{
+        var x=localStorage.getItem("information") ?? '';
+        var json=JSON.parse(x);
+        console.log(json.value);
+        var parse2=JSON.parse(json.value);
+        console.log(parse2._id);
+        }
     }
   
 

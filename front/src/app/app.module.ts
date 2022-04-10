@@ -24,6 +24,13 @@ import { ModifrestorateurComponent } from './modifrestorateur/modifrestorateur.c
 import { ModifrestoComponent } from './modifresto/modifresto.component';
 import { ModifplatComponent } from './modifplat/modifplat.component';
 import { ListeplatadminComponent } from './listeplatadmin/listeplatadmin.component';
+import { LoginComponent } from './login/login.component';
+import { ListecommanderestorateurComponent } from './listecommanderestorateur/listecommanderestorateur.component';
+import { DetailplatcommanderComponent } from './detailplatcommander/detailplatcommander.component';
+import { BeneficesrestorateurComponent } from './beneficesrestorateur/beneficesrestorateur.component';
+import { ListeplatcommandeglobaleComponent } from './listeplatcommandeglobale/listeplatcommandeglobale.component';
+import { BeneficesfullComponent } from './beneficesfull/beneficesfull.component';
+import { ListeplatalivrerComponent } from './listeplatalivrer/listeplatalivrer.component';
 
 
 
@@ -48,6 +55,13 @@ import { ListeplatadminComponent } from './listeplatadmin/listeplatadmin.compone
     ModifrestoComponent,
     ModifplatComponent,
     ListeplatadminComponent,
+    LoginComponent,
+    ListecommanderestorateurComponent,
+    DetailplatcommanderComponent,
+    BeneficesrestorateurComponent,
+    ListeplatcommandeglobaleComponent,
+    BeneficesfullComponent,
+    ListeplatalivrerComponent,
   
   ],
   imports: [

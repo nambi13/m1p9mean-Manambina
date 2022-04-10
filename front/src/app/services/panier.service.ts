@@ -11,7 +11,7 @@ export class PanierService {
   commande:commande=new commande;
   private productUrl = 'http://localhost:2000';
   constructor(private http: HttpClient) { }
- 
+  
   platpanier:plat[]=[];
 
   check(plat:plat){
@@ -88,11 +88,17 @@ export class PanierService {
 
   }
 
-  ajouterplat() {
+  ajouterplat(nom_restaurant:string) {
+    var x=localStorage.getItem("information") ?? '';
+    var json=JSON.parse(x);
+  //  console.log(json.value);
+    var parse2=JSON.parse(json.value);
+   // console.log(parse2._id);
+    
     //console.log(product);
     //  return this.http.post<users>(this.productUrl + '/create', users, {headers: new HttpHeaders({ 'Content-Type': 'application/json' }), responseType: 'text' as 'json'});
-    this.commande.email="jean@yahoo.fr";
-    this.commande.restaurant="cheznous";
+    this.commande.email=parse2._id;
+    this.commande.restaurant=nom_restaurant;
     this.commande.plat=this.fetchProduct(); 
   
     

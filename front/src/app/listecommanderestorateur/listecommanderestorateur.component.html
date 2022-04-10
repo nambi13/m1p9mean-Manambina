@@ -1,0 +1,27 @@
+<p>listecommanderestorateur works!</p>
+<h3>List of Products</h3>
+<div>
+	<a routerLink="/beneficerestorateur">benefice</a>&nbsp;
+</div>
+<table>
+      <tr>
+    <th>Name</th>
+	<th>Sales Count</th>
+	<th>Quani</th>
+	<th>Actions</th>
+  </tr>
+  <tr *ngFor="let product of commandeplatfull">
+	<td>{{product.email_utilisateur_recepteur}}</td>
+    <td>{{product.date}}</td>
+	<td>
+
+    </td>
+
+	<td>
+        <a routerLink="/detailcommandeplat/{{product._id}}">Edit</a>&nbsp;
+
+	</td>
+  </tr>
+ 
+     
+</table>

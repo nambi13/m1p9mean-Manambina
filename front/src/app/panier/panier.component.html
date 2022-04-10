@@ -4,7 +4,18 @@
 <div>
 	<a routerLink="/listeplat">Go back</a>&nbsp;
 </div>
+<form [formGroup]="checkoutForm" (ngSubmit)="acheter()">
 <div *ngIf="error">{{error}}</div>
+
+
+<mat-form-field>
+	<mat-label>Restaurant</mat-label>
+	<mat-select formControlName="nom_restaurant">
+	  <mat-option *ngFor="let team of restaurant" [value]="team.nom_restaurant">
+		{{team.nom_restaurant}}
+	  </mat-option>
+	</mat-select>
+  </mat-form-field>
 
 <div *ngIf="panierL">
 <table>
@@ -25,7 +36,8 @@
   </tr>
 </table>
 
-<button class="btn btn-secondary" (click)="acheter()">Acheter</button>
+<button class="btn btn-secondary" type="submit">Acheter</button>
 </div>
+</form>
 
 

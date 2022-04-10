@@ -70,10 +70,19 @@ function ajoutplat(formulaire,db){
     function commande(formulaire,db){
 
         
-
         if(formulaire.plat.length==0){
                 throw new Error("Panier vide");
         }
+        const ObjectId = require('mongodb').ObjectId; 
+        var ids=formulaire.email;
+        var good_id = new ObjectId(ids);
+        var query={_id: good_id};
+        var email="";
+        db.collection("utilisateur").find(query).toArray(function(err, result) {
+          if (err) throw err;
+          email=result[0].email;
+          console.log(result);
+       
         const crypto = require("crypto");
         const id = crypto.randomBytes(16).toString("hex");
         var idcommande=id;
@@ -85,34 +94,18 @@ function ajoutplat(formulaire,db){
          var data2 = {
            numerocommande: idcommande,
            email_utilisateur_livreur:'',
-           email_utilisateur_recepteur:formulaire.email,
+           email_utilisateur_recepteur:email,
            nom_restaurant:formulaire.restaurant,
          //  date: ISODATE(`${year}-${month}-${date}`),
+         plat:formulaire.plat,
          date:new Date(Date.now()).toISOString(),  
          etat_livraison:1
         };
         db.collection("commande").insertOne(data2, function(err, res) {
             if (err) throw err;
-        });
-        for(let i=0;i<formulaire.plat.length;i++){
-
-            var plat = {
-                numerocommande: idcommande,
-               nom_plat:formulaire.plat[i].nom_plat,
-               quantite:formulaire.plat[i].quantite,
-               prix:formulaire.plat[i].prix,
-             };
-
-           
-
-             db.collection("platcommande").insertOne(plat, function(err, res) {
-                if (err) throw err;
-            });
-
+        });  
         
-
-        }
-
+    });
         for(let i=0;i<formulaire.plat.length;i++){
 
            
@@ -120,8 +113,8 @@ function ajoutplat(formulaire,db){
              var benefice = {
                 nom_restaurant:formulaire.restaurant,
                nom_plat:formulaire.plat[i].nom_plat,
-               quantite:formulaire.plat[i].quantite,
-               prix:formulaire.plat[i].prix,
+               quantite:parseInt(formulaire.plat[i].quantite),
+               prix:parseInt(formulaire.plat[i].prix),
                date:new Date(Date.now()).toISOString(),  
              };
 

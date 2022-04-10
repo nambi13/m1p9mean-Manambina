@@ -1,0 +1,32 @@
+<p>listeplatcommandeglobale works!</p>
+<h3>List of Products</h3>
+<div>
+	<a routerLink="/listelivreur">Livreur</a>&nbsp;
+    <a routerLink="/listerestorateur">Restorateur</a>&nbsp;
+    <a routerLink="/listeresto">Restaurant</a>&nbsp;
+    <a routerLink="/client">client</a>&nbsp;
+    <a routerLink="/beneficefull">Benefice</a>&nbsp;
+
+</div>
+<table>
+      <tr>
+    <th>Name</th>
+	<th>Sales Count</th>
+	<th>Quani</th>
+	<th>Actions</th>
+  </tr>
+  <tr *ngFor="let product of commandeplatfull">
+	<td>{{product.email_utilisateur_recepteur}}</td>
+    <td>{{product.date}}</td>
+	<td>
+
+    </td>
+
+	<td>
+        <a routerLink="/detailcommandeplat/{{product._id}}">Edit</a>&nbsp;
+
+	</td>
+  </tr>
+ 
+     
+</table>

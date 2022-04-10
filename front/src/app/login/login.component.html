@@ -1,4 +1,4 @@
-  <html> 
+<html> 
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title> Login Page </title>
@@ -183,35 +183,26 @@ a {
 
     <div class="login">
         <div *ngIf="error">{{error}}</div>
-        <h2 (click)="connexion()" class="nonactive"> sign in </h2>
+        <h2 (click)="connexion()" class="active"> sign in </h2>
         
-      <h2 (click)="inscription()" class="active"> sign up </h2>
+      <h2 (click)="inscription()" class="nonactive"> sign up </h2>
       <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
        
         
     
-        <input type="text" class="text" name="username" formControlName="nom">
-         <span>nom</span>
+        <input type="email" class="text" name="username" formControlName="email">
+         <span>username</span>
     
         <br>
         
         <br>
     
-        <input type="text" class="text" name="password" formControlName="prenom">
-        <span>prenom</span>
+        <input type="password" class="text" name="password" formControlName="mdp">
+        <span>password</span>
         <br>
-
-        <input type="password" class="text" name="password" formControlName="email">
-        <span>email</span>
-        <br>
-
-        <input type="password" class="text" name="password" formControlName="mdp1">
-        <span>mot de passe</span>
-        <br>
-
-        <input type="password" class="text" name="password" formControlName="mdp2">
-        <span>Confirmer mot de passe</span>
-        <br>
+    
+        <input type="checkbox" id="checkbox-1-1" class="custom-checkbox" />
+        <label for="checkbox-1-1">Keep me Signed in</label>
         
         <button class="signin">
           Sign In
@@ -226,3 +217,5 @@ a {
     </div>
 </body>   
 </html>
+
+ 

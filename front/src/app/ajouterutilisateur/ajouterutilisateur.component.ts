@@ -2,6 +2,7 @@ import { Component, OnInit,Input } from '@angular/core';
 import { Location } from '@angular/common';
 import { UtilisateurService } from '../utilisateur.service';    
 import { FormsModule, ReactiveFormsModule,FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-ajouterutilisateur',
@@ -19,7 +20,7 @@ export class AjouterutilisateurComponent implements OnInit {
     mdp2:[''],
   });
 
-  constructor(private UtilisateurService: UtilisateurService, private location: Location,
+  constructor(private router:Router,private UtilisateurService: UtilisateurService, private location: Location,
     private formBuilder: FormBuilder) { }
 	
 
@@ -43,6 +44,15 @@ export class AjouterutilisateurComponent implements OnInit {
 
     );
    
+  }
+  connexion():void{
+    this.router.navigate(['login']);
+
+  }
+  inscription():void{
+
+    this.router.navigate(['ajouterclient']);
+
   }
 
 }

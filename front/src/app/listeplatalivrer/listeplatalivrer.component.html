@@ -1,0 +1,23 @@
+<p>listeplatalivrer works!</p>
+<table>
+    <tr>
+  <th>Name</th>
+  <th>Sales Count</th>
+  <th>Quani</th>
+  <th>Actions</th>
+</tr>
+<tr *ngFor="let product of commandeplatfull">
+  <td>{{product.email_utilisateur_recepteur}}</td>
+  <td>{{product.date}}</td>
+  <td>
+    <button (click)="livraison(product._id)">Livrer</button>
+  </td>
+
+  <td>
+      <a routerLink="/detailcommandeplat/{{product._id}}">Edit</a>&nbsp;
+
+  </td>
+</tr>
+
+   
+</table>

@@ -29,18 +29,19 @@ Commande(V)
 
 
 Page Login
-connecter()
+connecter(V)
 Clients
-Commande Plat()
-Inscription()
+Commande Plat(V)
 Restaurateur
-Liste commadne en cours()
-Benefice()
+Liste commadne  en cours(V)
+Detail(V)
+Benefice(V)    sans calcul
 Ekaly 
-Voir Commande()
-Voir benefice ()
-CRUD()
+Voir Commande(V)
+Voir benefice (V) sans filtre sy recherche
+CRUD(V)
 Livreur 
-Voir les plats a livrer()
-
+Voir les plats a livrer(V)
+Livraison
+Inscription()
 

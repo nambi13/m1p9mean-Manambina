@@ -101,6 +101,44 @@ app.post('/supprimerplat', (req, res) => {
 });
 
 
+
+
+
+app.post('/livraison', (req, res) => {
+  client.connect();
+  const ObjectId = require('mongodb').ObjectId; 
+  var name = req.body;
+  var getlivreur=name.idlivreur;
+  var idlivreur = new ObjectId(name.idlivreur);
+  var querylivreur = { _id: idlivreur };
+  var email;
+  db.collection("utilisateur").find(querylivreur).toArray(function(err, result) {
+    if (err) throw err;
+    email=result[0].email;
+    console.log(result);
+
+
+
+
+  var id=name._id;
+  var good_id = new ObjectId(id);
+  //var query = { _id: req.params.id };
+  var myquery={_id: good_id};
+  var data2 = {$set: {
+      etat_commande:5,
+      email_utilisateur_livreur:email
+      }
+  };
+  db.collection("commande").updateOne(myquery,data2, function(err, res) {
+    if (err) throw err;
+    console.log("1 document updated");
+  });
+
+  });
+  return  res.status(200).send("OK");
+});
+
+
 app.get('/listeclients', (req, res) => {
   
   client.connect()
@@ -120,7 +158,6 @@ app.get('/listeplat', (req, res) => {
   var query = { etat_plat: 1 };
   db.collection("plat").find(query).toArray(function(err, result) {
     if (err) throw err;
-    console.log(result);
     res.send(result);
    //return  res.status(200).send("OK");
    
@@ -177,6 +214,152 @@ app.get('/listeresto', (req, res) => {
 });
 
 
+
+
+
+
+app.get('/detailcommandeplat/:id', (req, res) => {
+  client.connect();
+ // const ObjectId = require('mongodb').ObjectId; 
+ const ObjectId = require('mongodb').ObjectId; 
+  var id=req.params.id;
+  var good_id = new ObjectId(id);
+  var query = { _id: good_id }
+  db.collection("commande").find(query).toArray(function(err, result) {
+    if (err) throw err;
+   
+    res.send(result);
+  
+   //return  res.status(200).send("OK");
+   
+  
+   
+  //  client.close();
+  });
+ 
+});
+
+
+app.get('/benefice/:id', (req, res) => {
+  client.connect();
+ // const ObjectId = require('mongodb').ObjectId; 
+ const ObjectId = require('mongodb').ObjectId; 
+  var id=req.params.id;
+ // var good_id = new ObjectId(id);
+  var query = { nom_restaurant: id }
+  db.collection("benefice").find(query).toArray(function(err, result) {
+    if (err) throw err;
+   
+    res.send(result);
+  
+   //return  res.status(200).send("OK");
+   
+  
+   
+  //  client.close();
+  });
+ 
+});
+
+
+
+
+app.get('/beneficefull', (req, res) => {
+  client.connect();
+ // const ObjectId = require('mongodb').ObjectId; 
+ const ObjectId = require('mongodb').ObjectId; 
+  var id=req.params.id;
+ // var good_id = new ObjectId(id);
+  //var query = { nom_restaurant: id }
+  db.collection("benefice").find({}).toArray(function(err, result) {
+    if (err) throw err;
+   
+    res.send(result);
+  
+   //return  res.status(200).send("OK");
+   
+  
+   
+  //  client.close();
+  });
+ 
+});
+
+
+app.get('/fullcommande', (req, res) => {
+  client.connect();
+ // const ObjectId = require('mongodb').ObjectId; 
+ const ObjectId = require('mongodb').ObjectId; 
+  var id=req.params.id;
+ // var good_id = new ObjectId(id);
+  var query = { etat_livraison: 1 }
+  db.collection("commande").find(query).toArray(function(err, result) {
+    if (err) throw err;
+  // console.log(result);
+    res.send(result);
+  
+   //return  res.status(200).send("OK");
+   
+  
+   
+  //  client.close();
+  });
+ 
+});
+
+
+app.get('/fullcommandelivrer', (req, res) => {
+  client.connect();
+ // const ObjectId = require('mongodb').ObjectId; 
+ const ObjectId = require('mongodb').ObjectId; 
+  var id=req.params.id;
+ // var good_id = new ObjectId(id);
+  var query = { etat_livraison: 1 }
+  db.collection("commande").find(query).toArray(function(err, result) {
+    if (err) throw err;
+  // console.log(result);
+    res.send(result);
+  
+   //return  res.status(200).send("OK");
+   
+  
+   
+  //  client.close();
+  });
+ 
+});
+
+
+
+
+
+
+
+
+app.get('/detailcommanderesto/:id', (req, res) => {
+  client.connect();
+ // const ObjectId = require('mongodb').ObjectId; 
+  var id=req.params.id;
+ // var good_id = new ObjectId(id);
+  //var query = { _id: req.params.id };
+  var query={nom_restaurant: id,etat_livraison:1};
+  db.collection("commande").find(query).toArray(function(err, result) {
+    if (err) throw err;
+   
+    res.send(result);
+  
+   //return  res.status(200).send("OK");
+   
+  
+   
+  //  client.close();
+  });
+ 
+});
+
+
+
+
 app.get('/detailclient/:id', (req, res) => {
   client.connect();
   const ObjectId = require('mongodb').ObjectId; 
@@ -225,7 +408,6 @@ app.get('/detailplat/:id', (req, res) => {
 
 
 app.get('/detailresto/:id', (req, res) => {
-  client.connect();
   const ObjectId = require('mongodb').ObjectId; 
   var id=req.params.id;
   var good_id = new ObjectId(id);
@@ -244,37 +426,91 @@ app.get('/detailresto/:id', (req, res) => {
  
 });
 
+
+
+
+
+
 app.post('/ajouterplat', (req, res) => {
- //  {nom_plat: 'wqewq`', prix: 'qweqw', quantite: '123'}
-    //console.log(req.body);
-    var name = req.body; 
-    //console.log(name);
-    try{
-        metierplat.ajoutplat(name,db);
-       //S res.statusCode = 200;
-       //S res.setHeader('Content-Type', 'application/json');
-      // res.send({ title: 'GeeksforGeeks' });
-    //  client.close();
-      res.status(200).send("OK");
-    }catch(error){
-  
-     // res.statusCode = 404;
-     //S res.send(error);
-    // console.log(error.message);
-   // res.send({ title: error.message });
-     res.status(404).send(error.message);
-     
-      
-   // client.close();
+  //  {nom_plat: 'wqewq`', prix: 'qweqw', quantite: '123'}
+     //console.log(req.body);
+     var name = req.body; 
+     //console.log(name);
+     try{
+         metierplat.ajoutplat(name,db);
+        //S res.statusCode = 200;
+        //S res.setHeader('Content-Type', 'application/json');
+       // res.send({ title: 'GeeksforGeeks' });
+     //  client.close();
+       res.status(200).send("OK");
+     }catch(error){
    
-      //res.end();
+      // res.statusCode = 404;
+      //S res.send(error);
+     // console.log(error.message);
+    // res.send({ title: error.message });
+      res.status(404).send(error.message);
+      
+       
+    // client.close();
+    
+       //res.end();
+   
+   
+     }
+ 
+ 
+ });
+
+
+
+ 
+
+app.post('/login', (req, res) => {
   
-  
+    var name = req.body; 
+    console.log(name)  
+    client.connect()
+  var query = {email:name.email,etat:1};
+  db.collection("utilisateur").find(query).toArray(function(err, result) {
+    if (err) throw err;
+    console.log(result);
+ ///   res.send(result);
+    if(result.length>0){
+     // res.send(result);
+
+      if(result[0].nom_profile.normalize()==="restaurant"){
+        
+        var data2 = {
+          _id:result[0]._id,
+           nom_profile:"restaurant",
+          nom_restaurant:result[0].nom_restaurant,
+        
+      };
+      res.send(JSON.stringify(data2));
+
+      }
+      else{
+
+        var data2 = {
+          _id:result[0]._id,
+           nom_profile:result[0].nom_profile,
+        
+      };
+      res.send(JSON.stringify(data2));
+
+
+      }
+
+    }else{
+    //  res.send("email: 'sdfsdfq', mdp: 'sdfsdfsdfsd' ");
+    res.status(404).send("Utilisateur inexistant");
     }
+    //client.close();
 
 
 });
-
+});
 
 
 
@@ -315,12 +551,13 @@ app.post('/commande', (req, res) => {
   var name = req.body; 
   console.log(name);
   try{
+    client.connect();
     Metierplat.commande(name,db)
 
     return res.status(200).json("ok");
   }catch(error){
   
-
+    console.log(error);
     return res.status(404).json(error.message);
   }
 

@@ -4,6 +4,9 @@ import { ActivatedRoute } from '@angular/router';
 import { plat } from '../model/plat';
 import { Location } from '@angular/common';
 import { PanierService } from '../services/panier.service';
+import { RestoService } from '../services/resto.service';
+import { FormBuilder } from '@angular/forms';
+import { restaurant } from '../model/restaurant';
 
 @Component({
   selector: 'app-panier',
@@ -12,12 +15,26 @@ import { PanierService } from '../services/panier.service';
 })
 export class PanierComponent implements OnInit {
   error="";
+  restaurant:restaurant[]=[]
   panierL:plat[]=[];
-	constructor(private route: ActivatedRoute, private PlatService: PlatService,private PanierService:PanierService,private location: Location) { }
+  checkoutForm = this.formBuilder.group({
+    nom_restaurant: [''],
+  })
+	constructor(private formBuilder:FormBuilder,private route: ActivatedRoute,private RestoService: RestoService,private PlatService: PlatService,private PanierService:PanierService,private location: Location) { };
   ngOnInit(): void {
+    this.getProducts();
     this.getpanier();
     //this.getpanier();
   }
+
+  getProducts(): void {
+    //	this.UsersService.getProducts().subscribe(users => this.users = users);
+    
+      this.RestoService.getlisterestaurant().subscribe(utilisateur =>{ 
+       // console.log(utilisateur)      
+        this.restaurant = utilisateur}
+        );
+    }
   removeFromCart(plat:plat) {
     console.log("ato");
     this.PanierService.removeItem(plat);
@@ -33,22 +50,24 @@ export class PanierComponent implements OnInit {
 
     }
     acheter():void{
+      console.log(this.checkoutForm.value);
       //this.panierL=this.PanierService.fetchProduct();
-      this.PanierService.ajouterplat().subscribe(data =>{ 
-        console.log(data);
+
+     this.PanierService.ajouterplat(this.checkoutForm.value.nom_restaurant).subscribe(data =>{ 
+      //  console.log(data);
         this.PanierService.supprimerpanier();
         this.goback();
 
          // console.log(jsend);
 
         }, error=>{
-         // console.log(error.error);
+          console.log(error.error);
           this.error=error.error;
     
     
         }
     
-        );
+       );
       }
 
 }
