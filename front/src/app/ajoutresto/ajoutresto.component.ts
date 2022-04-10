@@ -22,6 +22,10 @@ export class AjoutrestoComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  goBack(): void {
+		this.location.back();
+	}
+
   onSubmit(): void {
     // Process checkout data here
    // this.items = this.cartService.clearCart();
@@ -29,8 +33,9 @@ export class AjoutrestoComponent implements OnInit {
  //   console.log(this.checkoutForm.value.name);
    // this.checkoutForm.reset();
    this.RestoService.ajouterresto(this.checkoutForm.value).subscribe(data =>{ 
-    console.log(data);
+    //console.log(data);
      // console.log(jsend);
+     this.goBack();
     }, error=>{
      // console.log(error.error);
       this.error=error.error;

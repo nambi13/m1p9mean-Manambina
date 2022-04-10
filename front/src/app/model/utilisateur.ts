@@ -5,6 +5,6 @@ export class utilisateur {
 	"email": string;
 	"nom_profile": string;
 	"etat": string;
-    "nom_restauraunt":string;
+    "nom_restaurant":string;
 	"mdp":string;
 }

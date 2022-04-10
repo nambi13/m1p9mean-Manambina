@@ -23,7 +23,7 @@ export class AjoutrestorateurComponent implements OnInit {
     mdp2:[''],
   });
   
-	constructor(private route: ActivatedRoute, private  RestoService:  RestoService, private UtilisateurService:UtilisateurService,  private formBuilder: FormBuilder) { }
+	constructor(private route: ActivatedRoute, private  RestoService:  RestoService, private UtilisateurService:UtilisateurService,  private formBuilder: FormBuilder,private location: Location) { }
   ngOnInit(): void {
     this.getProducts();
     //this.getpanier();
@@ -39,17 +39,21 @@ export class AjoutrestorateurComponent implements OnInit {
         this.restaurant = utilisateur}
         );
     }
+    goBack(): void {
+      this.location.back();
+    }
 
     onSubmit(): void {
     
 
       this.UtilisateurService.ajoutrestaurateur(this.checkoutForm.value).subscribe(data =>{ 
-        console.log(data);
+       // console.log(data);
          // console.log(jsend);
+          this.goBack();
         }, error=>{
          // console.log(error.error);
          this.error=error.error;
-     console.log(this.checkoutForm.value);
+    // console.log(this.checkoutForm.value);
      
     });
   }

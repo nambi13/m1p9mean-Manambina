@@ -42,6 +42,12 @@ Voir benefice (V) sans filtre sy recherche
 CRUD(V)
 Livreur 
 Voir les plats a livrer(V)
-Livraison
-Inscription()
+Livraison(V)
+Inscription(V)
 
+
+Page design
+Client(V)
+Restorateur(V)
+Ekaly()
+Livreur

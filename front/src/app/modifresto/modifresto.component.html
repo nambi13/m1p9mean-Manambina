@@ -1,19 +1,49 @@
-<p>modifresto works!</p>
-<div>
-    <h2>Add Product Detail</h2>
-    <div>
-      <div *ngIf="error">{{error}}</div>
-      <form [formGroup]="checkoutForm" (ngSubmit)="save()">
-      <div>
-        <input type="hidden" formControlName="id" value="{{restaurant._id}}">
-        <label for="nom">
-          nom
-        </label>
-        <input id="nom" type="text"  formControlName="nom">
-      </div>
-    
-    
+  <div id="wrapper">
+    <app-navbardeconnexion></app-navbardeconnexion>
+     <!-- /. NAV TOP  -->
+    <app-navbareresto></app-navbareresto>
+     <!-- /. NAV SIDE  -->
+     <div id="page-wrapper" >
+       <div id="page-inner">
+         <div class="row">
+           <div class="col-md-12">
+          <h2><h3>Ajouter Resto </h3></h2> 
+            <div class="col-lg-12 col-md-12">
+            </div>
+            <button (click)="goBack()">Retour</button>
+            <div *ngIf="error">{{error}}</div>
+            <form [formGroup]="checkoutForm" (ngSubmit)="save()">
+            <div>
+              <input type="hidden" formControlName="id" value="{{restaurant._id}}">
+              <label for="nom">
+                nom
+              </label>
+              <input id="nom" type="text"  formControlName="nom">
+            </div>
+          
+          
+             
+              <button class="button" type="submit">Purchase</button>
+      </form>
+          </div>
+           </div>
+         </div>              
+        <!-- /. ROW  -->
+         <hr />
        
-        <button class="button" type="submit">Purchase</button>
-</form>
-  </div>
+        <!-- /. ROW  -->           
+   </div>
+      <!-- /. PAGE INNER  -->
+       </div>
+    <!-- /. PAGE WRAPPER  -->
+     
+   <app-footbar></app-footbar>
+  
+  
+  
+  
+  
+  
+  
+  
+  

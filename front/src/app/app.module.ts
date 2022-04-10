@@ -31,6 +31,15 @@ import { BeneficesrestorateurComponent } from './beneficesrestorateur/beneficesr
 import { ListeplatcommandeglobaleComponent } from './listeplatcommandeglobale/listeplatcommandeglobale.component';
 import { BeneficesfullComponent } from './beneficesfull/beneficesfull.component';
 import { ListeplatalivrerComponent } from './listeplatalivrer/listeplatalivrer.component';
+import { NavbarclientComponent } from './navbarclient/navbarclient.component';
+import { FootbarComponent } from './footbar/footbar.component';
+import { NavbardeconnexionComponent } from './navbardeconnexion/navbardeconnexion.component';
+import { BasComponent } from './bas/bas.component';
+import { NavbarestorateurComponent } from './navbarestorateur/navbarestorateur.component';
+import { NavbarerestoComponent } from './navbareresto/navbareresto.component';
+import { DetailcommandeerestoComponent } from './detailcommandeeresto/detailcommandeeresto.component';
+import { DetaillivreurComponent } from './detaillivreur/detaillivreur.component';
+import { NavbarlivreurComponent } from './navbarlivreur/navbarlivreur.component';
 
 
 
@@ -62,6 +71,15 @@ import { ListeplatalivrerComponent } from './listeplatalivrer/listeplatalivrer.c
     ListeplatcommandeglobaleComponent,
     BeneficesfullComponent,
     ListeplatalivrerComponent,
+    NavbarclientComponent,
+    FootbarComponent,
+    NavbardeconnexionComponent,
+    BasComponent,
+    NavbarestorateurComponent,
+    NavbarerestoComponent,
+    DetailcommandeerestoComponent,
+    DetaillivreurComponent,
+    NavbarlivreurComponent,
   
   ],
   imports: [

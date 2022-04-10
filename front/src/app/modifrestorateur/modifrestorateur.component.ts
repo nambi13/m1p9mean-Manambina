@@ -6,6 +6,7 @@ import { FormBuilder } from '@angular/forms';
 import { FormControl } from '@angular/forms';
 import { RestoService } from '../services/resto.service';
 import { restaurant } from '../model/restaurant';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-modifrestorateur',
@@ -25,13 +26,16 @@ export class ModifrestorateurComponent implements OnInit {
     mdp1:[''],
     mdp2:[''],
   });
-  constructor(private route: ActivatedRoute,private UtilisateurService:UtilisateurService, private  RestoService:  RestoService,private formBuilder:FormBuilder) { }
+  constructor(private route: ActivatedRoute,private UtilisateurService:UtilisateurService, private  RestoService:  RestoService,private formBuilder:FormBuilder,private location: Location) { }
 
   ngOnInit(): void {
     this.getclient();
     this.getProducts();
    
   }
+  goBack(): void {
+		this.location.back();
+	}
   getProducts(): void {
     //	this.UsersService.getProducts().subscribe(users => this.users = users);
     
@@ -65,8 +69,9 @@ export class ModifrestorateurComponent implements OnInit {
   }
   save(): void {
     this.UtilisateurService.modifierrestorateur(this.checkoutForm.value).subscribe(data =>{ 
-      console.log(data);
+      //console.log(data);
        // console.log(jsend);
+       this.goBack();
       }, error=>{
        // console.log(error.error);
         this.error=error.error;

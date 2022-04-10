@@ -26,6 +26,11 @@ export class AjoutlivreurComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  goBack(): void {
+		this.location.back();
+	}
+
   onSubmit(): void {
     // Process checkout data here
    // this.items = this.cartService.clearCart();
@@ -34,6 +39,7 @@ export class AjoutlivreurComponent implements OnInit {
    // this.checkoutForm.reset();
    this.UtilisateurService.ajoutlivreur (this.checkoutForm.value).subscribe(data =>{ 
     console.log(data);
+    this.goBack();
      // console.log(jsend);
     }, error=>{
      // console.log(error.error);

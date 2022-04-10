@@ -24,6 +24,8 @@ import { BeneficesrestorateurComponent } from './beneficesrestorateur/beneficesr
 import { ListeplatcommandeglobaleComponent } from './listeplatcommandeglobale/listeplatcommandeglobale.component';
 import { BeneficesfullComponent } from './beneficesfull/beneficesfull.component';
 import { ListeplatalivrerComponent } from './listeplatalivrer/listeplatalivrer.component';
+import { DetailcommandeerestoComponent } from './detailcommandeeresto/detailcommandeeresto.component';
+import { DetaillivreurComponent } from './detaillivreur/detaillivreur.component';
 
 const routes: Routes = [
 
@@ -52,6 +54,8 @@ const routes: Routes = [
   { path: 'listeplatcommande', component: ListeplatcommandeglobaleComponent },
   { path: 'beneficefull', component: BeneficesfullComponent },
   { path: 'platlivrer', component: ListeplatalivrerComponent },
+  { path: 'detailcommanderesto/:id', component: DetailcommandeerestoComponent },
+  { path: 'detailcommandelivreur/:id', component: DetaillivreurComponent },
   
 
 ]

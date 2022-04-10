@@ -1,45 +1,68 @@
-<p>modifclient works!</p>
-<div>
-    <h2>Add Product Detail</h2>
-    <div>
-      <div *ngIf="error">{{error}}</div>
-      <form [formGroup]="checkoutForm" (ngSubmit)="save()">
-      <div>
-        <input type="hidden" formControlName="id" value="{{utilisateur._id}}">
-        <label for="nom">
-          nom
-        </label>
-        <input id="nom" type="text"  formControlName="nom">
-      </div>
-    
-      <div>
-        <label for="prenom">
-          prenom
-        </label>
-        <input id="prenom" type="text"   formControlName="prenom">
-      </div>
-  
-      <div>
-          <label for="email">
-            email
-          </label>
-          <input id="email" formControlName="email"  type="email" formControlName="email">
-        </div>
-      
-  
-      <div>
-          <label for="mdp1">
-            mdp1
-          </label>
-          <input id="mdp1" type="password" formControlName="mdp1">
-        </div>
-      <div>
-          <label for="mdp2">
-            mdp2
-          </label>
-          <input id="mdp2" type="password"  formControlName="mdp2">
-        </div>
+
+
+  <div id="wrapper">
+    <app-navbardeconnexion></app-navbardeconnexion>
+     <!-- /. NAV TOP  -->
+    <app-navbareresto></app-navbareresto>
+     <!-- /. NAV SIDE  -->
+     <div id="page-wrapper" >
+       <div id="page-inner">
+         <div class="row">
+           <div class="col-md-12">
+          <h2><h3>Modifier Client</h3></h2> 
+            <div class="col-lg-12 col-md-12">
+            </div>
+            <button (click)="goBack()">Retour</button>
+          
+            <div *ngIf="error">{{error}}</div>
+            <form [formGroup]="checkoutForm" (ngSubmit)="save()">
+            <div>
+              <input type="hidden" class="form-control" formControlName="id" value="{{utilisateur._id}}">
+              <label for="nom">
+                nom
+              </label>
+              <input id="nom" type="text" class="form-control" formControlName="nom">
+            </div>
+          
+            <div>
+              <label for="prenom">
+                prenom
+              </label>
+              <input id="prenom" type="text" class="form-control"   formControlName="prenom">
+            </div>
+        
+            <div>
+                <label for="email">
+                  email
+                </label>
+                <input id="email" formControlName="email" class="form-control" type="email" formControlName="email">
+              </div>
+            
+        
+            <div>
+                <label for="mdp1">
+                  mdp1
+                </label>
+                <input id="mdp1" type="password" class="form-control" formControlName="mdp1">
+              </div>
+            <div>
+                <label for="mdp2">
+                  mdp2
+                </label>
+                <input id="mdp2" type="password" class="form-control"  formControlName="mdp2">
+              </div>
+             
+              <button class="button" type="submit">Purchase</button>
+      </form>
+          </div>
+           </div>
+         </div>              
+        <!-- /. ROW  -->
+         <hr />
        
-        <button class="button" type="submit">Purchase</button>
-</form>
-  </div>
+        <!-- /. ROW  -->           
+   </div>
+      <!-- /. PAGE INNER  -->
+       </div>
+    <!-- /. PAGE WRAPPER  -->
+     

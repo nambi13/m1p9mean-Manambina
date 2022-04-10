@@ -4,6 +4,7 @@ import { utilisateur } from '../model/utilisateur';
 import { ActivatedRoute } from '@angular/router';
 import { FormBuilder } from '@angular/forms';
 import { FormControl } from '@angular/forms';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-modiflivreur',
@@ -21,7 +22,7 @@ export class ModiflivreurComponent implements OnInit {
     mdp1:[''],
     mdp2:[''],
   });
-  constructor(private route: ActivatedRoute,private UtilisateurService:UtilisateurService,private formBuilder:FormBuilder) { }
+  constructor(private route: ActivatedRoute,private UtilisateurService:UtilisateurService,private formBuilder:FormBuilder,private location:Location) { }
 
   ngOnInit(): void {
     this.getclient();
@@ -53,6 +54,7 @@ export class ModiflivreurComponent implements OnInit {
   save(): void {
     this.UtilisateurService.modifierclient(this.checkoutForm.value).subscribe(data =>{ 
       console.log(data);
+      this.location.back();
        // console.log(jsend);
       }, error=>{
        // console.log(error.error);
@@ -63,4 +65,8 @@ export class ModiflivreurComponent implements OnInit {
   
       );
   }
+  goBack(): void {
+		this.location.back();
+	}
+
 }
