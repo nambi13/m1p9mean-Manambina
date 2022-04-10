@@ -9,6 +9,23 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { ListeplatComponent } from './listeplat/listeplat.component';
 import { AjouterplatComponent } from './ajouterplat/ajouterplat.component';
 import { PanierComponent } from './panier/panier.component';
+import { ListelivreurComponent } from './listelivreur/listelivreur.component';
+import { AjoutlivreurComponent } from './ajoutlivreur/ajoutlivreur.component';
+import { ListerestoComponent } from './listeresto/listeresto.component';
+import { AjoutrestoComponent } from './ajoutresto/ajoutresto.component';
+import { ListerestorateurComponent } from './listerestorateur/listerestorateur.component';
+import { AjoutrestorateurComponent } from './ajoutrestorateur/ajoutrestorateur.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { ModifclientComponent } from './modifclient/modifclient.component';
+import { ModiflivreurComponent } from './modiflivreur/modiflivreur.component';
+import { ModifrestorateurComponent } from './modifrestorateur/modifrestorateur.component';
+import { ModifrestoComponent } from './modifresto/modifresto.component';
+import { ModifplatComponent } from './modifplat/modifplat.component';
+import { ListeplatadminComponent } from './listeplatadmin/listeplatadmin.component';
+
+
 
 
 @NgModule({
@@ -19,6 +36,18 @@ import { PanierComponent } from './panier/panier.component';
     ListeplatComponent,
     AjouterplatComponent,
     PanierComponent,
+    ListelivreurComponent,
+    AjoutlivreurComponent,
+    ListerestoComponent,
+    AjoutrestoComponent,
+    ListerestorateurComponent,
+    AjoutrestorateurComponent,
+    ModifclientComponent,
+    ModiflivreurComponent,
+    ModifrestorateurComponent,
+    ModifrestoComponent,
+    ModifplatComponent,
+    ListeplatadminComponent,
   
   ],
   imports: [
@@ -26,7 +55,11 @@ import { PanierComponent } from './panier/panier.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    BrowserAnimationsModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

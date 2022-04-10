@@ -1,0 +1,25 @@
+<p>listerestorateur works!</p>
+
+<h3>List of Products</h3>
+<div>
+	
+</div>
+<table>
+      <tr>
+    <th>Name</th>
+	<th>Sales Count</th>
+	<th>Sale Date</th>
+	<th>Actions</th>
+  </tr>
+  <tr *ngFor="let product of utilisateur">
+	<td>{{product.nom_utilisateur}}</td>
+    <td>{{product.prenom}}</td>
+	<td>{{product.email}}</td>
+	<td>{{product.nom_restauraunt}}</td>
+	<td>{{product.etat}}</td>
+	<td>
+		<a routerLink="/restorateur/{{product._id}}">Edit</a>&nbsp;
+		<button title="delete product" (click)="delete(product)">x</button>
+	</td>
+  </tr>
+</table>

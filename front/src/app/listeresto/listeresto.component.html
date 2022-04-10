@@ -1,0 +1,22 @@
+<p>listeresto works!</p>
+
+<h3>List of Products</h3>
+<div>
+	<a routerLink="/panier">Detail</a>&nbsp;
+</div>
+<table>
+      <tr>
+    <th>Nom</th>
+	<th>Actions</th>
+  </tr>
+  <tr *ngFor="let product of restaurant">
+	<td>{{product.nom_restaurant}}</td>
+    <td>
+      <a routerLink="/resto/{{product._id}}">Edit</a>&nbsp;
+      <button title="delete product" (click)="delete(product)">x</button>
+    </td>
+
+  </tr>
+</table>
+
+

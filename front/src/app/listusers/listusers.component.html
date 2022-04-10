@@ -17,6 +17,8 @@
 	<td>{{product.email}}</td>
 	<td>{{product.mdp}}</td>
 	<td>{{product.etat}}</td>
+	<a routerLink="/client/{{product._id}}">Edit</a>&nbsp;
+	<button title="delete product" (click)="delete(product)">x</button>
 	<td>
 		
 	</td>

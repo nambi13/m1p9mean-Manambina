@@ -1,0 +1,19 @@
+<p>modifresto works!</p>
+<div>
+    <h2>Add Product Detail</h2>
+    <div>
+      <div *ngIf="error">{{error}}</div>
+      <form [formGroup]="checkoutForm" (ngSubmit)="save()">
+      <div>
+        <input type="hidden" formControlName="id" value="{{restaurant._id}}">
+        <label for="nom">
+          nom
+        </label>
+        <input id="nom" type="text"  formControlName="nom">
+      </div>
+    
+    
+       
+        <button class="button" type="submit">Purchase</button>
+</form>
+  </div>

@@ -1,0 +1,14 @@
+<p>ajoutresto works!</p>
+<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+    <div *ngIf="error">{{error}}</div>
+      <div>
+        <label for="nom">
+          Nom
+        </label>
+        <input id="nom" type="text" formControlName="nom">
+      </div>
+    
+    
+      <button class="button" type="submit">Purchase</button>
+    
+    </form>

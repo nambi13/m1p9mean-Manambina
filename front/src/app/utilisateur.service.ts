@@ -23,4 +23,37 @@ export class UtilisateurService {
       return this.http.post(this.productUrl + '/create', Object, {headers: new HttpHeaders({ 'Content-Type': 'application/json' }), responseType: 'text' as 'json'})
     }
 
+    ajoutlivreur(Object:Object) {
+      //console.log(product);
+      //  return this.http.post<users>(this.productUrl + '/create', users, {headers: new HttpHeaders({ 'Content-Type': 'application/json' }), responseType: 'text' as 'json'});
+        return this.http.post(this.productUrl + '/ajoutlivreur', Object, {headers: new HttpHeaders({ 'Content-Type': 'application/json' }), responseType: 'text' as 'json'})
+      }
+
+      ajoutrestaurateur(Object:Object) {
+        //console.log(product);
+        //  return this.http.post<users>(this.productUrl + '/create', users, {headers: new HttpHeaders({ 'Content-Type': 'application/json' }), responseType: 'text' as 'json'});
+          return this.http.post(this.productUrl + '/ajoutrestorateur', Object, {headers: new HttpHeaders({ 'Content-Type': 'application/json' }), responseType: 'text' as 'json'})
+        }
+  listelivre(): Observable<utilisateur[]>{
+    return this.http.get<utilisateur[]>(this.productUrl + '/listelivreur');
+  }
+
+  listerestorateur(): Observable<utilisateur[]>{
+    return this.http.get<utilisateur[]>(this.productUrl + '/listerestorateur');
+  }
+  getdetailclient(id: string): Observable<any> {
+    const url = `${this.productUrl}/detailclient/${id}`;
+    return this.http.get<utilisateur>(url);
+  }
+  modifierclient(Object: object): Observable<any> {
+    return this.http.post(this.productUrl + '/modifierclient', Object, {headers: new HttpHeaders({ 'Content-Type': 'application/json' }), responseType: 'text' as 'json'})
+  }
+  modifierrestorateur(Object: object): Observable<any> {
+    return this.http.post(this.productUrl + '/modifrestorateur', Object, {headers: new HttpHeaders({ 'Content-Type': 'application/json' }), responseType: 'text' as 'json'})
+  }
+  supprimer(Object: object): Observable<any> {
+    return this.http.post(this.productUrl + '/supprimerutilisateur', Object, {headers: new HttpHeaders({ 'Content-Type': 'application/json' }), responseType: 'text' as 'json'})
+  }
+  
+
 }

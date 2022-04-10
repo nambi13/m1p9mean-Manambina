@@ -25,7 +25,20 @@ export class ListusersComponent implements OnInit {
         console.log(utilisateur)      
         this.utilisateur = utilisateur}
         );
+  }
+  delete(utilisateur: utilisateur): void {
+    this.UtilisateurService.supprimer(utilisateur).subscribe(users => {
+      this.getProducts();
+     // console.log(users);
+
+    }, error=>{
+      console.log(error.error);
+    
+
     }
+
+    );
+	}
 
 
 }

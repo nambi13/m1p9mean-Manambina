@@ -82,6 +82,11 @@ export class PanierService {
   itemInCart(plat:plat): boolean {
     return this.platpanier.findIndex(o => o._id ===  plat._id) > -1;
   }
+  supprimerpanier(){
+    this.platpanier=[];
+    localStorage.removeItem("cart_items");
+
+  }
 
   ajouterplat() {
     //console.log(product);

@@ -1,0 +1,52 @@
+<p>ajoutrestorateur works!</p>
+<div *ngIf="error">{{error}}</div>
+<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+<h2>Basic mat-select Example</h2>
+
+<div>
+    <label for="nom">
+      nom
+    </label>
+    <input id="nom" type="text" class="form-control" formControlName="nom">
+  </div>
+
+  <div>
+    <label for="prenom">
+      prenom
+    </label>
+    <input id="prenom" type="text" class="form-control" formControlName="prenom">
+  </div>
+
+  <div>
+      <label for="email">
+        email
+      </label>
+      <input id="email" formControlName="email" type="email" class="form-control" formControlName="email">
+    </div>
+
+    <mat-form-field>
+        <mat-label>Restaurant</mat-label>
+        <mat-select formControlName="nom_restaurant">
+          <mat-option *ngFor="let team of restaurant" [value]="team.nom_restaurant">
+            {{team.nom_restaurant}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+
+  <div>
+      <label for="mdp1">
+        mdp1
+      </label>
+      <input id="mdp1" type="password" class="form-control" formControlName="mdp1">
+    </div>
+  <div>
+      <label for="mdp2">
+        mdp2
+      </label>
+      <input id="mdp2" type="password" class="form-control" formControlName="mdp2">
+    </div>
+
+  
+<button class="button" type="submit">Purchase</button>
+</form>

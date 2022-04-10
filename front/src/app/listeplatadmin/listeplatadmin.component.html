@@ -1,0 +1,27 @@
+<p>listeplatadmin works!</p>
+<p>listusers works!</p>
+
+<h3>List of Products</h3>
+<div>
+	<a routerLink="/panier">Detail</a>&nbsp;
+</div>
+<table>
+      <tr>
+    <th>Name</th>
+	<th>Sales Count</th>
+	<th>Quani</th>
+	<th>Actions</th>
+  </tr>
+  <tr *ngFor="let product of plat">
+	<td>{{product.nom_plat}}</td>
+    <td>{{product.prix}}</td>
+	<td>{{product.quantite}}</td>
+
+	<td>
+        <a routerLink="/plat/{{product._id}}">Edit</a>&nbsp;
+        <button title="delete product" (click)="delete(product)">x</button>
+	</td>
+  </tr>
+</table>
+
+

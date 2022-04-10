@@ -1,23 +1,46 @@
 CRUD Clients
 C(V)
 R(V)
-U
-D
+U(V)
+D(V)
 CRUD LIVREUR
-C
-R
-U
-D
+C(V)
+R(V)
+U(V)
+D(V)
+CRUD Restaurateur
+C(V)
+R(V)
+U(V)
+D(V)
 CRUD RESTO
-C
-R
-U
-D
+C(V)
+R(V)
+U(V)
+D(V)
 CRUD PLAT
 C(V)
 R(V)
-U
-D
-Aza adino Crud nom ihany ao
+U(V)
+D(V)
+Aza adino Crud nom ihany ao(V)
 Panier(V)
 Commande(V)
+
+
+Page Login
+connecter()
+Clients
+Commande Plat()
+Inscription()
+Restaurateur
+Liste commadne en cours()
+Benefice()
+Ekaly 
+Voir Commande()
+Voir benefice ()
+CRUD()
+Livreur 
+Voir les plats a livrer()
+
+

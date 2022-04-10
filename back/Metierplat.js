@@ -49,8 +49,8 @@ function ajoutplat(formulaire,db){
           else{
             var data2 = {
                 nom_plat: formulaire.nom_plat,
-                prix: formulaire.prix,
-                quantite:formulaire.quantite,
+                prix: parseInt(formulaire.prix),
+                quantite:parseInt(formulaire.quantite),
                 etat_plat:1,
             };
 
@@ -132,18 +132,68 @@ function ajoutplat(formulaire,db){
             });
 
         }
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
+function modifierplat(formulaire,db){
+    if(formulaire.nom_plat  === ""){
+        throw new Error('Ajouter nom');
     }
-module.exports = {ajoutplat:ajoutplat,commande:commande};
+    if(formulaire.prix === ""){
+
+        throw new Error('Ajouter prix');
+    }
+    else{
+        if(!isNum(formulaire.prix)){
+            throw new Error('Le prix doit etre un nombre');
+
+        }
+        else{
+            if(formulaire.prix<=0 ){
+                throw new Error('Le prix ne doit pas etre inferieure ou egal a 0');
+            }
+
+        }
+    }
+   
+
+   
+
+    var MongoClient = require('mongodb').MongoClient;
+    var url = "mongodb://localhost:27017/resto";
+ 
+      
+       
+        var query = { nom_plat: formulaire.nom_plat };
+        db.collection("plat").find(query).toArray(function(err, result) {
+          if (err) throw err;
+          if(result.length>0){
+              if(result[0]._id!=formulaire.id){
+            throw new Error('Nom existant');
+              }
+          }
+        
+          const ObjectId = require('mongodb').ObjectId; 
+            var good_id = new ObjectId(formulaire.id);
+            var myquery={_id: good_id};
+            var data2 = {$set: {
+                nom_plat:formulaire.nom_plat,
+                prix:parseInt(formulaire.prix)
+                }
+            };
+            
+            console.log(good_id);
+            db.collection("plat").updateOne(myquery,data2, function(err, res) {
+                if (err) throw err;
+                console.log("1 document updated");
+              
+              });
+
+
+          
+        });
+     
+    
+
+        return 1;
+}
+module.exports = {ajoutplat:ajoutplat,commande:commande,modifierplat:modifierplat};

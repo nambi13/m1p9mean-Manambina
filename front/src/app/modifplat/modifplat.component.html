@@ -1,0 +1,29 @@
+<p>modifplat works!</p>
+<p>modifresto works!</p>
+<div>
+    <h2>Add Product Detail</h2>
+    <div>
+      <div *ngIf="error">{{error}}</div>
+      <form [formGroup]="checkoutForm" (ngSubmit)="save()">
+      <div>
+        <input type="hidden" formControlName="id" value="{{plat._id}}">
+        <label for="nom">
+          nom
+        </label>
+        <input id="nom" type="text"  formControlName="nom_plat">
+      </div>
+
+      <div>
+       
+        <label for="nom">
+          prix      
+        </label>
+        <input id="nom" type="text"  formControlName="prix">
+      </div>
+      
+    
+    
+       
+        <button class="button" type="submit">Purchase</button>
+</form>
+  </div>
