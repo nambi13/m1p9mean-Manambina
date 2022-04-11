@@ -1,4 +1,11 @@
 {
+  "name":"test",
+  "version":"1.0.0",
+  "description": "",
+  "main":"test.js",
+  "scripts": {
+    "start":"node test.js"
+  },
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.3",
