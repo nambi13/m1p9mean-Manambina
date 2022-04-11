@@ -33,7 +33,7 @@ app.all('*', function(req, res, next) {
     const db = client.db('resto')
   
 
-
+    app.get('/', (req, res) => res.send('Hello World!'));
   
 app.post('/supprimerutilisateur', (req, res) => {
   client.connect();
@@ -795,4 +795,5 @@ client.close();
 
 });
 //SQLCMD -L
- app.listen(2000);
+// app.listen(2000);
+app.listen(process.env.PORT || port, () => console.log(`Example app listening at http://localhost:${port}`));
