@@ -1,8 +1,8 @@
 # m1p9mean-Manambina
 
-livreur
+livreur:
 rak@yahoo.fr 123
-client
+client:
 jean@yahoo.fr 123
-resto
+resto:
 nous@yahoo.fr 123
